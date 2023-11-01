@@ -9,19 +9,32 @@ use Src\Character\Domain\Model\ValueObjects\HealthPoints;
 
 class CharacterTest extends TestCase
 {
+    private $HP;
+    private $sword;
+    private $character;
 
-    public function test_character_is_an_ally_have_a_sword_and_full_hp() {
-        
-        $HP = new HealthPoints(HP: 60);
-        $sword = new Sword;
+    public function setUp(): void
+    {
+        $this->HP = new HealthPoints(HP: 60);
+        $this->sword = new Sword;
 
-        $character = new Character(name: "Agrias", HP: $HP, weapon: $sword);
+        $this->character = new Character(name: "Agrias", HP: $this->HP, weapon: $this->sword);
+    }
 
-        $this->assertSame("Agrias", $character->getName());
+    public function test_character_has_a_name() {
+        $this->assertSame("Agrias", $this->character->getName());
+    }
 
-        $character->setAlignementToAlly();
-        $this->isTrue($character->isAlly());
+    public function test_character_is_an_ally() {
+        $this->character->setAlignementToAlly();
+        $this->assertTrue($this->character->isAlly());
+    }
 
-        $this->assertSame(6, $character->dealDamage());
+    public function test_character_deal_damage() {
+        $this->assertSame(6, $this->character->dealDamage());
+    }
+
+    public function test_character_has_health_points() {
+        $this->assertSame(60, $this->character->getHP());
     }
 }
