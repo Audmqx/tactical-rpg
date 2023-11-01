@@ -189,8 +189,8 @@ return [
         /*
          * Domain Service Providers...
          */
-        \Src\Agenda\User\Application\Providers\UserServiceProvider::class,
-        \Src\Agenda\Company\Application\Providers\CompanyServiceProvider::class,
+        //\Src\Agenda\User\Application\Providers\UserServiceProvider::class, //as un exemple
+    
 
         /*
          * Domain Routes Service Providers...
@@ -200,7 +200,7 @@ return [
          * Application Service Providers...
          */
         \Src\Common\Infrastructure\Laravel\Providers\AppServiceProvider::class,
-        \Src\Auth\Application\Providers\AuthServiceProvider::class,
+        //\Src\Auth\Application\Providers\AuthServiceProvider::class, as an exemple
         // Src\Common\Infrastructure\Laravel\Providers\BroadcastServiceProvider::class,
         \Src\Common\Infrastructure\Laravel\Providers\EventServiceProvider::class,
         \Src\Common\Infrastructure\Laravel\Providers\RouteServiceProvider::class,
