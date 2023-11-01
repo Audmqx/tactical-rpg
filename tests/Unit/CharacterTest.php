@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Src\Character\Domain\Model\Entities\Character;
 use Src\Character\Domain\Model\ValueObjects\Sword;
 use Src\Character\Domain\Model\ValueObjects\HealthPoints;
+use Ramsey\Uuid\Uuid;
 
 class CharacterTest extends TestCase
 {
@@ -18,7 +19,7 @@ class CharacterTest extends TestCase
         $this->HP = new HealthPoints(HP: 60);
         $this->sword = new Sword;
 
-        $this->character = new Character(name: "Agrias", HP: $this->HP, weapon: $this->sword);
+        $this->character = new Character(id: Uuid::uuid4(), name: "Agrias", HP: $this->HP, weapon: $this->sword);
     }
 
     public function test_character_has_a_name() {

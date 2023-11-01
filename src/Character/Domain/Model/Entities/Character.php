@@ -7,17 +7,24 @@ namespace Src\Character\Domain\Model\Entities;
 use Src\Character\Domain\Model\ValueObjects\HealthPoints;
 use Src\Character\Domain\Model\Interface\WeaponInterface;
 use Src\Common\Domain\Entity;
+use Ramsey\Uuid\UuidInterface;
 
 class Character extends Entity
 {
     private bool $isAlly;
 
     public function __construct(
+        private UuidInterface $id,
         private string $name,
         private HealthPoints $HP,
         private WeaponInterface $weapon,
     )
     {}
+
+    public function getId(): UuidInterface
+    {
+        return $this->id;
+    }
 
     public function getName(): string
     {
