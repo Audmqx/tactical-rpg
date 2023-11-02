@@ -15,4 +15,10 @@ class HealthPoints
     {
         return $this->HP;
     }
+
+    public function decreaseHP(int $damageAmount): HealthPoints
+    {
+        $newHP = max(0, $this->HP - $damageAmount);
+        return new HealthPoints($newHP);
+    }
 }
