@@ -40,7 +40,7 @@ class CharacterRepositoryTest extends TestCase
 
     public function test_find_character_by_id()
     {
-        $characterId = 123;
+        $characterId = Uuid::uuid4();
     
         $this->characterRepository
             ->expects($this->once())

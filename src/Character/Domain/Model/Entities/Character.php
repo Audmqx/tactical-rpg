@@ -46,6 +46,11 @@ class Character extends Entity
         return $this->weapon->damage();
     }
 
+    public function receiveDamage(int $damageAmount): void
+    {
+        $this->HP = $this->HP->decreaseHP($damageAmount);
+    }
+
     public function getHP(): int
     {
         return $this->HP->getHP();

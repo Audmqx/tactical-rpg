@@ -22,20 +22,37 @@ class CharacterTest extends TestCase
         $this->character = new Character(id: Uuid::uuid4(), name: "Agrias", HP: $this->HP, weapon: $this->sword);
     }
 
-    public function test_character_has_a_name() {
+    public function test_character_has_a_name() 
+    {
         $this->assertSame("Agrias", $this->character->getName());
     }
 
-    public function test_character_is_an_ally() {
+    public function test_character_is_an_ally() 
+    {
         $this->character->setAlignementToAlly();
         $this->assertTrue($this->character->isAlly());
     }
 
-    public function test_character_deal_damage() {
+    public function test_character_deal_damage() 
+    {
         $this->assertSame(6, $this->character->dealDamage());
     }
 
-    public function test_character_has_health_points() {
+    public function test_character_has_health_points() 
+    {
         $this->assertSame(60, $this->character->getHP());
+    }
+
+    public function test_character_should_receive_damage()
+    {
+        $initialHP = $this->character->getHP();
+
+    
+        $damageAmount = 10;
+        $this->character->receiveDamage($damageAmount);
+
+        $expectedHP = $initialHP - $damageAmount;
+
+        $this->assertSame($expectedHP, $this->character->getHP());
     }
 }
