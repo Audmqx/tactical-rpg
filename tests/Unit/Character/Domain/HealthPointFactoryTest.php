@@ -18,7 +18,7 @@ class HealthPointFactoryTest extends TestCase
     {
        $factory = new HealthPointsFactory;
 
-       $healthPointObject = $factory->create(hp: 60);
+       $healthPointObject = $factory->create(HP: 60);
 
        $this->assertInstanceOf(HealthPoints::class, $healthPointObject);
        $this->assertEquals(60, $healthPointObject->getHP());

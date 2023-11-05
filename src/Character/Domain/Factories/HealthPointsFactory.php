@@ -8,8 +8,8 @@ use Src\Character\Domain\Model\ValueObjects\HealthPoints;
 
 class HealthPointsFactory
 {
-    public function create(int $hp): HealthPoints
+    public function create(int $HP): HealthPoints
     {
-        return new HealthPoints(HP: $hp);
+        return new HealthPoints(HP: $HP);
     }
 }   

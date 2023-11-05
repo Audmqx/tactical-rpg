@@ -11,7 +11,11 @@ use Ramsey\Uuid\UuidInterface;
 
 class Character extends Entity
 {
-    private bool $isAlly;
+    const ENNEMY = "ennemy";
+    const NEUTRAL = "neutral";
+    const ALLY = "ally";
+
+    private string $status;
 
     public function __construct(
         private UuidInterface $id,
@@ -19,7 +23,9 @@ class Character extends Entity
         private HealthPoints $HP,
         private WeaponInterface $weapon,
     )
-    {}
+    {
+        $this->status = self::NEUTRAL;
+    }
 
     public function getId(): UuidInterface
     {
@@ -33,12 +39,26 @@ class Character extends Entity
     
     public function setAlignementToAlly(): void
     {
-        $this->isAlly = true;
+        $this->status = self::ALLY;
     }
 
-    public function isAlly(): bool
+    public function setAlignementToEnnemy(): void
     {
-        return $this->isAlly;
+        $this->status = self::ENNEMY;
+    }
+
+    public function getStatus(): string
+    {
+  
+        $status = match($this->status) 
+        {
+            self::NEUTRAL => self::NEUTRAL,
+            self::ENNEMY => self::ENNEMY, 
+            self::ALLY => self::ALLY, 
+            default => throw new \Exception('status error')
+        };
+
+        return $status;
     }
 
     public function dealDamage(): int
