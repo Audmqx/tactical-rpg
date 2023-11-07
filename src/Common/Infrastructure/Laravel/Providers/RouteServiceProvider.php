@@ -26,11 +26,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->configureRateLimiting();
-
         $this->routes(function () {
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->group( function() {
+                        require base_path('routes/web.php');
+                        require base_path('src/Character/Presentation/routes.php');
+                    }
+                );
 
             Route::middleware('api')
                 ->group(base_path('routes/api.php'));
@@ -41,18 +43,6 @@ class RouteServiceProvider extends ServiceProvider
                     // require base_path('src/Agenda/User/Presentation/HTTP/routes.php');
                     // require base_path('src/Agenda/Company/Presentation/HTTP/routes.php');
                 });
-        });
-    }
-
-    /**
-     * Configure the rate limiters for the application.
-     *
-     * @return void
-     */
-    protected function configureRateLimiting()
-    {
-        RateLimiter::for('internal_api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->ip());
         });
     }
 }
