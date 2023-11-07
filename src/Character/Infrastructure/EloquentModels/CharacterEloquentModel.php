@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\CharacterInfrastructure\EloquentModels;
+namespace Src\Character\Infrastructure\EloquentModels;
 
 use Illuminate\Database\Eloquent\Model;
 
