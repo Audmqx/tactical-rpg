@@ -29,7 +29,6 @@ class CharacterRepositoryTest extends TestCase
 
     public function test_save_character_to_database()
     {
-
         $this->characterRepository
             ->expects($this->once())
             ->method('store')
@@ -55,7 +54,6 @@ class CharacterRepositoryTest extends TestCase
 
     public function test_update_character_in_database()
     {
-    
         $this->characterRepository
             ->expects($this->once())
             ->method('update')
