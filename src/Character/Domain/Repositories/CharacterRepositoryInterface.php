@@ -10,7 +10,7 @@ interface CharacterRepositoryInterface
 
     public function findById(UuidInterface $characterId): Character;
 
-    public function store(Character $character): Character;
+    public function store(Character $character): void;
 
     public function update(Character $character): void;
 

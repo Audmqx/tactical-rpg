@@ -47,7 +47,7 @@ class Character extends Entity
         $this->status = self::ENNEMY;
     }
 
-    public function getStatus(): string
+    public function getAlignement(): string
     {
   
         $status = match($this->status) 
@@ -75,6 +75,12 @@ class Character extends Entity
     {
         return $this->HP->getHP();
     }
+
+    public function getWeapon(): string
+    {
+        return $this->weapon->getName();
+    }
+
 
     public function toArray(): array
     {

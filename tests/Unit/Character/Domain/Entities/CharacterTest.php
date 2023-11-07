@@ -30,7 +30,7 @@ class CharacterTest extends TestCase
     public function test_character_is_an_ally() 
     {
         $this->character->setAlignementToAlly();
-        $this->assertSame("ally", $this->character->getStatus());
+        $this->assertSame("ally", $this->character->getAlignement());
     }
 
     public function test_character_deal_damage() 

@@ -189,9 +189,7 @@ return [
         /*
          * Domain Service Providers...
          */
-        //\Src\Agenda\User\Application\Providers\UserServiceProvider::class, //as un exemple
-    
-
+        \Src\Character\Application\Providers\CharacterServiceProvider::class, 
         /*
          * Domain Routes Service Providers...
          */

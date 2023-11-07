@@ -7,5 +7,7 @@ namespace Src\Character\Domain\Model\Interface;
 
 interface WeaponInterface
 {
-    public function Damage();
+    public function getName(): string;
+
+    public function Damage():int;
 }
