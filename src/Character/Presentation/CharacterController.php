@@ -24,9 +24,6 @@ class CharacterController extends Controller
 
         $ennemy = $ennemy->execute();
 
-        dd($ennemy);
-
-
         // try {
         //     return response()->success((new FindAllUsersQuery())->handle());
         // } catch (UnauthorizedUserException $e) {

@@ -32,7 +32,7 @@ class CharacterRepository implements CharacterRepositoryInterface
         }
 
         return $this->characterFactory->create(
-            id: Uuid::uuid4(),
+            id: $characterModel->id,
             name: $characterModel->name,
             HP: $this->healthPointsFactory->create($characterModel->health_points),
             weapon: $this->weaponFactory->create($characterModel->weapon),
